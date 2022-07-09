@@ -2,8 +2,8 @@
 import iCLIP
 import pandas
 from CGAT import GTF, IOTools
-my_getter = iCLIP.make_getter(plus_wig="/fastdata/mbp15jdp/MRC5_polII_ChIP/mp/bwa.dir/MRC5_polII_ChIP-seq.bw")
-gtffile = IOTools.openFile("geneset_1000_extension_filtered.gtf.gz")
+my_getter = iCLIP.make_getter(plus_wig="polII_ChIP-seq.bw")
+gtffile = IOTools.openFile("geneset.gtf.gz")
 gtf_iterator = GTF.iterator(gtffile)
 gene_iterator = GTF.flat_gene_iterator(gtf_iterator)
 def truncate_exon(exon, start, l, strand):
@@ -70,4 +70,4 @@ pausing_ratio = pandas.Series(pausing_ratios)
 pausing_ratio.head()
 
 
-pausing_ratio.to_csv("MRC5_RNApolII_Pausing_Ratios_Corrected_hg38_1k_extension.csv", sep="\t")
+pausing_ratio.to_csv("Pausing_Ratios.csv", sep="\t")
